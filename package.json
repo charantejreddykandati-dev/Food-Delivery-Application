@@ -20,6 +20,6 @@
     "test": "npm --workspace=server run test"
   },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   }
 }
