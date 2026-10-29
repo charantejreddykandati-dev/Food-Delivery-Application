@@ -1,0 +1,22 @@
+{
+  "name": "food-delivery-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hyperlocal Food Discovery, Ordering, and Real-Time Tracking Platform powered by Gemini 2.5 Flash",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev:server": "npm --workspace=server run dev",
+    "dev:client": "npm --workspace=client run dev",
+    "build": "npm --workspace=shared run build && npm --workspace=server run build && npm --workspace=client run build",
+    "db:migrate": "npm --workspace=server run db:migrate",
+    "db:seed": "npm --workspace=server run db:seed",
+    "test": "npm --workspace=server run test"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
