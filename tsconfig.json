@@ -13,7 +13,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "paths": {
       "@hyperlocal/shared": ["./shared/src/index.ts"]
     }
@@ -25,4 +24,3 @@
     "client/src/**/*.tsx"
   ]
 }
-
