@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: hyperlocal-food-backend
+    name: cravepulse-hyperlocal-api
     runtime: node
     plan: free
     buildCommand: npm install && npm run build:server
@@ -12,11 +12,11 @@ services:
       - key: PORT
         value: 5000
       - key: CLIENT_BASE_URL
-        sync: false
+        value: https://cravepulse-hyperlocal.vercel.app
       - key: DATABASE_URL
-        sync: false
+        value: postgresql://user:password@localhost:5432/food_delivery_db?sslmode=disable
       - key: GEMINI_API_KEY
-        sync: false
+        value: AIzaSyProductionConfiguredDemoKeyForHyperlocalConcierge
       - key: JWT_SECRET
         generateValue: true
       - key: DEFAULT_SEARCH_RADIUS_KM
@@ -27,4 +27,3 @@ services:
         value: "100"
       - key: DEFAULT_TAX_RATE_PERCENTAGE
         value: "8.25"
-
