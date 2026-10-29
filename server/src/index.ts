@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import { pathToFileURL } from "node:url";
 import { env } from "./config/env.js";
 import { runSchemaMigration } from "./db/index.js";
 import { errorHandler } from "./middleware/security.js";
@@ -36,7 +37,11 @@ async function bootstrap() {
   });
 }
 
-if (process.env.NODE_ENV !== "test") {
+const isMainEntry =
+  process.argv[1] &&
+  pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isMainEntry && process.env.NODE_ENV !== "test") {
   bootstrap().catch((err) => {
     console.error("[Hyperlocal Server] Startup error:", err);
     process.exit(1);
