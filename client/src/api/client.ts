@@ -13,7 +13,8 @@ import type {
   RestaurantSummary,
 } from "@hyperlocal/shared";
 
-const API_BASE = "/api";
+export const API_BASE =
+  (import.meta as any).env?.VITE_API_BASE_URL?.replace(/\/$/, "") || "/api";
 
 async function requestJson<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${url}`, {

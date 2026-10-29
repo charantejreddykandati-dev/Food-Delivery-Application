@@ -13,7 +13,7 @@ import {
 import { Navbar } from "../components/common/Navbar";
 import { OrderTrackingTimeline } from "../components/tracking/OrderTrackingTimeline";
 import { LiveDriverMapSimulator } from "../components/tracking/LiveDriverMapSimulator";
-import { api, formatCents } from "../api/client";
+import { api, API_BASE, formatCents } from "../api/client";
 import type { OrderStatus } from "@hyperlocal/shared";
 
 const NEXT_STAGE_MAP: Partial<
@@ -71,7 +71,7 @@ export const OrderTrackingPage: React.FC = () => {
   useEffect(() => {
     if (!id || !order?.trackingToken) return;
 
-    const url = `/api/orders/${encodeURIComponent(
+    const url = `${API_BASE}/orders/${encodeURIComponent(
       id
     )}/live-tracking?token=${encodeURIComponent(order.trackingToken)}`;
     const eventSource = new EventSource(url);

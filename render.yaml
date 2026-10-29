@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: hyperlocal-food-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build:server
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: CLIENT_BASE_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DEFAULT_SEARCH_RADIUS_KM
+        value: "15.0"
+      - key: BASE_DELIVERY_FEE_CENTS
+        value: "299"
+      - key: PER_KM_DELIVERY_FEE_CENTS
+        value: "100"
+      - key: DEFAULT_TAX_RATE_PERCENTAGE
+        value: "8.25"
+

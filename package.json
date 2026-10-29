@@ -12,6 +12,9 @@
     "dev:server": "npm --workspace=server run dev",
     "dev:client": "npm --workspace=client run dev",
     "build": "npm --workspace=shared run build && npm --workspace=server run build && npm --workspace=client run build",
+    "build:server": "npm --workspace=shared run build && npm --workspace=server run build",
+    "build:client": "npm --workspace=shared run build && npm --workspace=client run build",
+    "start": "npm --workspace=server run start",
     "db:migrate": "npm --workspace=server run db:migrate",
     "db:seed": "npm --workspace=server run db:seed",
     "test": "npm --workspace=server run test"
